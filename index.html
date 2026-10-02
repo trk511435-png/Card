@@ -3,106 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محفظتي الرقمية - واجهة مخصصة</title>
-    <!-- استخدام Tailwind CSS للتصميم السريع والأنور -->
+    <title>SM Store - Web3 Wallet</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
         body {
-            background-color: #0b0b0f;
+            font-family: 'Tajawal', sans-serif;
+            background-color: #060709;
             color: #ffffff;
-            font-family: system-ui, -apple-system, sans-serif;
         }
-        /* تصميم البطاقة الفاخرة بظلال مطابقة للصورة */
+        /* بطاقة رقمية فخمة بتصميم ثلاثي الأبعاد مع إضاءة وظلال عصرية */
         .crypto-card {
-            background: linear-gradient(135deg, #1f1f2e 0%, #12121a 100%);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, #181b2e 0%, #0d0f17 100%);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .crypto-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+            pointer-events: none;
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-between p-4 max-w-md mx-auto">
 
     <!-- الهيدر العلوي -->
-    <header class="w-full flex justify-between items-center py-4">
-        <div class="flex items-center gap-2 bg-zinc-900/80 px-3 py-1.5 rounded-full border border-zinc-800">
-            <span class="text-xs text-zinc-400">المحفظة الرئيسية</span>
-            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    <header class="w-full flex justify-between items-center py-4 mb-2">
+        <div class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold">
+                SM
+            </div>
+            <div>
+                <h1 class="text-xs font-bold tracking-wider text-white">SM STORE</h1>
+                <span class="text-[10px] text-emerald-400 flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> متصل بالشبكة
+                </span>
+            </div>
         </div>
-        <!-- شعار شركتك هنا -->
-        <div class="font-bold text-sm text-cyan-400 tracking-wider">SM STORE</div>
+        <button class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 p-2.5 rounded-xl text-zinc-300 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+        </button>
     </header>
 
-    <!-- المحتوى الرئيسي (البطاقة والعمليات) -->
-    <main class="w-full flex flex-col items-center my-auto">
+    <!-- المحتوى الرئيسي -->
+    <main class="w-full flex flex-col items-center">
         
-        <!-- البطاقة الرقمية بتصميم مخصص -->
-        <div class="crypto-card w-full rounded-2xl p-6 relative overflow-hidden mb-8">
-            <!-- تفاصيل البطاقة في الأعلى -->
-            <div class="flex justify-between items-center mb-6">
-                <span class="text-xs font-medium text-zinc-300">الرصيد المتاح</span>
-                <div class="flex items-center gap-1.5 bg-zinc-800/60 px-2.5 py-1 rounded-md border border-zinc-700/50">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span class="text-xs font-bold text-emerald-400">USDT</span>
-                </div>
+        <!-- البطاقة الرقمية بتصميم مخصص وبارز -->
+        <div class="crypto-card w-full rounded-3xl p-6 mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-xs font-medium text-zinc-400">إجمالي الأصول (USDT)</span>
+                <span class="text-xs font-bold bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 px-2.5 py-1 rounded-lg">USDT / TRC20</span>
             </div>
 
             <!-- عرض الرصيد -->
-            <div class="flex items-baseline gap-2 mb-4">
-                <span id="balanceDisplay" class="text-3xl font-extrabold tracking-tight">0.00</span>
-                <span class="text-sm text-zinc-400 font-semibold">USDT</span>
+            <div class="flex items-baseline gap-2 mb-3">
+                <span class="text-3xl font-black tracking-tight text-white">1,482.50</span>
+                <span class="text-xs text-zinc-400 font-bold">USDT</span>
             </div>
 
-            <!-- شعارات الرعاة في أسفل البطاقة -->
-            <div class="mt-6 pt-4 border-t border-zinc-800/80 flex justify-between items-center text-[10px] text-zinc-500">
-                <span>برعاية: شركاؤنا المميزون</span>
+            <!-- مؤشر التقلبات (صعود / هبوط) -->
+            <div class="flex items-center gap-2 mb-6">
+                <span class="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold px-2 py-0.5 rounded-md flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path></svg>
+                    +3.42%
+                </span>
+                <span class="text-[11px] text-zinc-400">آخر 24 ساعة</span>
+            </div>
+
+            <!-- شعارات الرعاة داخل البطاقة -->
+            <div class="pt-4 border-t border-zinc-800/80 flex justify-between items-center text-[10px] text-zinc-500">
+                <span class="text-zinc-400 font-medium">الرعاة والشركاء:</span>
                 <div class="flex gap-2">
-                    <span class="bg-zinc-800 px-2 py-0.5 rounded text-zinc-300">Sponsor A</span>
-                    <span class="bg-zinc-800 px-2 py-0.5 rounded text-zinc-300">Sponsor B</span>
+                    <span class="bg-zinc-800/80 text-zinc-300 px-2 py-0.5 rounded border border-zinc-700/50">Sponsor 1</span>
+                    <span class="bg-zinc-800/80 text-zinc-300 px-2 py-0.5 rounded border border-zinc-700/50">Sponsor 2</span>
                 </div>
             </div>
+        </div>
+
+        <!-- حقل إدخال العنوان العام (لربط المحفظة بالعنوان مباشرة) -->
+        <div class="w-full bg-zinc-900/60 border border-zinc-800 p-3 rounded-2xl mb-6 flex items-center gap-2">
+            <input type="text" placeholder="أدخل العنوان العام (0x... / T...)" class="w-full bg-transparent text-xs text-zinc-200 outline-none px-2 font-mono">
+            <button class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition">ربط</button>
         </div>
 
         <!-- أزرار الإرسال والاستقبال -->
-        <div class="w-full grid grid-cols-2 gap-4 mb-8">
-            <button onclick="receiveAction()" class="flex flex-col items-center justify-center bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 p-4 rounded-2xl transition cursor-pointer">
-                <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center mb-2 text-cyan-400">
-                    <svg class="w-5 h-5 rotate-225" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        <div class="w-full grid grid-cols-2 gap-3 mb-6">
+            <button class="flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 py-3.5 rounded-2xl transition cursor-pointer text-xs font-bold text-zinc-200">
+                <div class="w-7 h-7 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
+                    <svg class="w-4 h-4 rotate-225" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </div>
-                <span class="text-xs font-medium text-zinc-200">استقبال (Receive)</span>
+                استقبال (Receive)
             </button>
 
-            <button onclick="sendAction()" class="flex flex-col items-center justify-center bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 p-4 rounded-2xl transition cursor-pointer">
-                <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center mb-2 text-cyan-400">
-                    <svg class="w-5 h-5 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            <button class="flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 py-3.5 rounded-2xl transition cursor-pointer text-xs font-bold text-zinc-200">
+                <div class="w-7 h-7 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
+                    <svg class="w-4 h-4 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </div>
-                <span class="text-xs font-medium text-zinc-200">إرسال (Send)</span>
+                إرسال (Send)
             </button>
         </div>
 
-        <!-- سجل المعاملات (فارغ حالياً مثل الصورة) -->
-        <div class="w-full flex flex-col items-center justify-center py-6 text-center border-t border-zinc-900">
-            <div class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-600 mb-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        <!-- قائمة العملات والتقلبات الحية -->
+        <div class="w-full bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-4">
+            <h2 class="text-xs font-bold text-zinc-400 mb-3">الأصول المتاحة والتقلبات</h2>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">₮</div>
+                        <div>
+                            <div class="text-xs font-bold text-white">USDT</div>
+                            <div class="text-[10px] text-zinc-400">Tether USD</div>
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-xs font-bold text-white">1,482.50 $</div>
+                        <div class="text-[10px] text-emerald-400 font-bold">+0.01%</div>
+                    </div>
+                </div>
             </div>
-            <p class="text-xs text-zinc-500">لا توجد معاملات حتى الآن</p>
         </div>
 
     </main>
 
     <!-- زر التمويل السفلي -->
-    <footer class="w-full py-4">
-        <button class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-medium py-3.5 rounded-2xl transition text-sm shadow-lg cursor-pointer">
-            شحن المحفظة (Fund your wallet)
+    <footer class="w-full pt-4">
+        <button class="w-full bg-gradient-to-r from-indigo-600 to-violet-600 hover:opacity-90 text-white font-bold py-3.5 rounded-2xl transition text-xs shadow-lg cursor-pointer">
+            شحن المحفظة برعاية SM Store
         </button>
     </footer>
 
-    <script>
-        function receiveAction() {
-            alert("هنا تظهر نافذة QR Code الخاص بعنوان محفظتك للاستقبال.");
-        }
-        function sendAction() {
-            alert("هنا تظهر نافذة إدخال العنوان المراد الإرسال إليه.");
-        }
-    </script>
 </body>
 </html>
